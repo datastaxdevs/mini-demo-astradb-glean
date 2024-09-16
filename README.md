@@ -96,13 +96,14 @@ export ASTRA_DB_API_ENDPOINT=<change_me>
 
 # Glean Configuration
 export GLEAN_CUSTOMER=<you>
-export GLEAN_DATASOURCE_NAME=astraDbCollectionDataSource
+export GLEAN_DATASOURCE_NAME=<change_me>
+export GLEAN_API_TOKEN=<change_me>
 ```
 
 
 - `✅ 2.1.d`:Run the script
 
-```
+```console
 python3 astra-glean.py
 ```
 
