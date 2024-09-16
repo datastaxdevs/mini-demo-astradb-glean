@@ -1,10 +1,16 @@
 # mini-demo-astradb-glean
 Demo showing how to index AstraDB data into Glean
 
+You can follow this tutorial fully in a google collab or follow the instructions below to run locally
+
+## Work in a COllab
+
 [![Open In Colab](https://img.shields.io/badge/Open%20in%20Colab-blue?logo=google-colab&style=for-the-badge)](https://colab.research.google.com/github/datastaxdevs/mini-demo-astradb-glean/blob/main/AstraDB_Glean_Integration.ipynb)
 
+## Run Locally
 
-## Prerequisuite
+[![Run Locally](https://img.shields.io/badge/Run%20Locally-python3-blue?style=for-the-badge)](#)
+
 
 ### 1.1 Setup AstraDB
 
@@ -52,33 +58,54 @@ To connect to your database, you need the API Endpoint and a token. The api endp
 To get a token click the `[Generate Token]` button on the right. It will generate a token that you can copy to your clipboard.
 
 
-## Installation
+## 2. Installation
 
-### Python Environment
+### 2.1 Python Environment
 
-- Create a virtual environment
+- `✅ 2.1.a`: Create and activate a virtual environment
 
+```console
+python3 -m venv venv
 ```
-python -m venv astra_glean
-```
-
-- Activation this environ
 
 _macOS_
 ```
-source astra_glean/bin/activate
+source venv/bin/activate
 ```
 
 _Windows_
 ```
-astra_glean\Scripts\activate
+venv\Scripts\activate
+```
 
-- Install the dependencies
+- `✅ 2.1.b`:Install the dependencies
 
 ```console
 pip install astrapy==1.4.1 --no-deps
 pip install -r requirements.txt
 ```
+
+- `✅ 2.1.c`: Edit `.env`
+
+_Copy `.env.example` as `.env`_
+
+```ini
+# Astra Configuration
+export ASTRA_DB_APPLICATION_TOKEN=<change_me>
+export ASTRA_DB_API_ENDPOINT=<change_me>
+
+# Glean Configuration
+export GLEAN_CUSTOMER=<you>
+export GLEAN_DATASOURCE_NAME=astraDbCollectionDataSource
+```
+
+
+- `✅ 2.1.d`:Run the script
+
+```
+python3 astra-glean.py
+```
+
 
 
 
