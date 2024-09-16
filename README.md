@@ -104,7 +104,7 @@ export GLEAN_API_TOKEN=<change_me>
 - `✅ 2.1.d`:Run the script
 
 ```console
-python3 astra-glean.py
+python3 astra-glean-import-job.py
 ```
 
 
