@@ -1,0 +1,5 @@
+astrapy==1.4.1
+datasets
+python-dotenv
+pandas==2.1.4
+https://app.glean.com/meta/indexing_api_client.zip
