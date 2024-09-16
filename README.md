@@ -3,7 +3,7 @@ Demo showing how to index AstraDB data into Glean
 
 You can follow this tutorial fully in a google collab or follow the instructions below to run locally
 
-## Work in a COllab
+## Work in a Collab
 
 [![Open In Colab](https://img.shields.io/badge/Open%20in%20Colab-blue?logo=google-colab&style=for-the-badge)](https://colab.research.google.com/github/datastaxdevs/mini-demo-astradb-glean/blob/main/AstraDB_Glean_Integration.ipynb)
 
