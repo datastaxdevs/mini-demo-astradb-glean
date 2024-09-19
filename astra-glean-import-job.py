@@ -20,23 +20,24 @@ from colorama import Fore, Style  # For color coding the output
 load_dotenv()
 
 ASTRA_DB_APPLICATION_TOKEN = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
-ASTRA_DB_API_ENDPOINT = os.getenv("ASTRA_DB_API_ENDPOINT")
-GLEAN_API_TOKEN       = os.getenv("GLEAN_API_TOKEN")
-GLEAN_CUSTOMER        = os.getenv("GLEAN_CUSTOMER")
-GLEAN_DATASOURCE_NAME = os.getenv("GLEAN_DATASOURCE_NAME")
+ASTRA_DB_API_ENDPOINT      = os.getenv("ASTRA_DB_API_ENDPOINT")
+ASTRA_DB_COLLECTION_NAME   = os.getenv("ASTRA_DB_COLLECTION_NAME")
+GLEAN_API_TOKEN            = os.getenv("GLEAN_API_TOKEN")
+GLEAN_CUSTOMER             = os.getenv("GLEAN_CUSTOMER")
+GLEAN_DATASOURCE_NAME      = os.getenv("GLEAN_DATASOURCE_NAME")
 
 print(f"{Fore.GREEN}============================={Style.RESET_ALL}")
 print(f"{Fore.GREEN} ASTRADB - GLEAN INTEGRATION {Style.RESET_ALL}")
 print(f"{Fore.GREEN}============================={Style.RESET_ALL}\n")
 
 # Initialize Astra DB client
-client = DataAPIClient(ASTRA_DB_APPLICATION_TOKEN)
+client = DataAPIClient(ASTRA_DB_APPLICATION_TOKEN, caller_name="glean", caller_version="1.0")
 database = client.get_database(ASTRA_DB_API_ENDPOINT)
 print(f"{Fore.CYAN}[ OK ] - Credentials are OK, your database name is {Style.RESET_ALL}{database.info().name}")
 
 # Create collection
-plain_collection = database.create_collection("plain_collection", check_exists=False)
-print(f"{Fore.CYAN}[ OK ] - Collection {Style.RESET_ALL}'plain_collection'{Fore.CYAN} is ready{Style.RESET_ALL}")
+plain_collection = database.create_collection(ASTRA_DB_COLLECTION_NAME, check_exists=False)
+print(f"{Fore.CYAN}[ OK ] - Collection {Style.RESET_ALL}{ASTRA_DB_COLLECTION_NAME}{Fore.CYAN} is ready{Style.RESET_ALL}")
 
 # Load philosopher dataset
 print(f"{Fore.CYAN}[INFO] - Downloading Data from Hugging Face 🤗{Style.RESET_ALL}")

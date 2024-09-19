@@ -93,6 +93,7 @@ _Copy `.env.example` as `.env`_
 # Astra Configuration
 export ASTRA_DB_APPLICATION_TOKEN=<change_me>
 export ASTRA_DB_API_ENDPOINT=<change_me>
+export ASTRA_DB_COLLECTION_NAME="plain_collection"
 
 # Glean Configuration
 export GLEAN_CUSTOMER=<you>
