@@ -13,26 +13,26 @@ You can run this tutorial entirely in a google colab, or run it locally by follo
 [![Run Locally](https://img.shields.io/badge/Run%20Locally-python3-blue?style=for-the-badge)](#)
 
 
-### 1.1 Set up Astra DB
+### 1. Set up Astra DB
 
 ℹ️ See the [Astra Reference documentation](https://docs.datastax.com/en/astra-db-serverless/databases/create-database.html).
 
 
-`✅ 1.1.a`: Create an Astra ACCOUNT
+`✅ 1.1`: Create an Astra account
 
 Access [https://astra.datastax.com](https://astra.datastax.com) and register with `Google` or `Github` account.
 
 ![](https://github.com/datastaxdevs/mini-demo-astradb-glean/blob/main/images/01-login.png?raw=true)
 
 
-`✅ 1.1.b`: Create a Database in Astra DB
+`✅ 1.2`: Create a Database in Astra DB
 
 Get to the databases dashboard (by clicking on Databases in the left-hand navigation bar, expanding it if necessary), and click the `[Create Database]` button on the right.
 
 ![](https://github.com/datastaxdevs/mini-demo-astradb-glean/blob/main/images/02-create-db.png?raw=true)
 
 
-- **ℹ️ Field Description**
+**ℹ️ Field Description**
 
 | Field                                      | Description                                                                                                                                                                                                                                   |
 |--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +49,7 @@ It should take a couple of minutes for your database to become `Active`.
 
 ![](https://github.com/datastaxdevs/mini-demo-astradb-glean/blob/main/images/04-active-db.png?raw=true)
 
-`✅ 1.1.c`: Create an Astra TOKEN
+`✅ 1.3`: Create an Astra Database token
 
 To [connect to your database](https://docs.datastax.com/en/astra-db-serverless/get-started/quickstart.html#create-a-database-and-store-your-credentials), you need the **API endpoint** and a **Database token**.
 
@@ -59,11 +59,21 @@ The API endpoint is available on the database screen, there is a little icon to 
 
 To get a token click the `[Generate Token]` button on the right. It will generate a token that you can copy to your clipboard.
 
-## 2. Installation
+### 2. Obtain a Glean token
 
-### 2.1 Python Environment
+> [Glean Documentation](https://developers.glean.com/indexing#authentication)
 
-- `✅ 2.1.a`: Create and activate a virtual environment. You need Python version 3.9 or higher.
+Admins can manage Glean API tokens via the API tokens page within Workspace Settings:
+
+```
+Workspace > Setup > API tokens > Indexing tokens tab
+```
+
+As a Glean admin, create a token and assign permissions (or have an admin do it for you).
+
+### 3. Installation
+
+- `✅ 3.1`: Create and activate a virtual environment. You need Python version 3.9 or higher.
 
 ```console
 python3 -m venv my_virtual_env
@@ -79,13 +89,13 @@ _Windows:_
 my_virtual_env\Scripts\activate
 ```
 
-- `✅ 2.1.b`:Install the dependencies:
+- `✅ 3.2`:Install the dependencies:
 
 ```console
 pip install -r requirements.txt
 ```
 
-- `✅ 2.1.c`: Create an environment file (`.env`):
+## 4. Create environment file
 
 Copy `.env.example` as `.env`, and edit its content with the Astra DB and Glean credentials:
 
@@ -102,12 +112,18 @@ export GLEAN_DATASOURCE_NAME=<change_me>
 export GLEAN_API_TOKEN=<change_me>
 ```
 
-## 3. Run the script
+## 5. Run the script
 
 ```console
 python3 astra-glean-import-job.py
 ```
 
-## 4. More information
+## Wrap up and more information
+
+Congratulations: you have indexed data from an Astra DB collection into Glean!
+
+You can inspect the Astra DB collection in your Astra dashboard: navigate to the database and find the "Data explorer" tab to locate your collection.
+
+You can perform a test with Glean: search for the content you just indexed and verify the response contains information coming from the inserted dataset.
 
 ℹ️ [Glean integration page](https://docs.datastax.com/en/astra-db-serverless/integrations/glean.html) on Astra DB documentation.

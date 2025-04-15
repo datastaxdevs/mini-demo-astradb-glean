@@ -62,8 +62,8 @@ print(f"{Fore.CYAN}[ OK ] - Dataset loaded in memory.{Style.RESET_ALL}")
 print(f"{Fore.CYAN}[INFO] - Sample record: {Style.RESET_ALL}{philo_dataset[16]}")
 
 
-# Progress bar for loading to Astra
 def load_to_astra_db(data_to_insert, collection):
+    """Load all of the provided data into a collection."""
     def split_tags(t):
         return [tag for tag in (t or "").split(";") if tag]
 
@@ -125,7 +125,7 @@ try:
     )
 except indexing_api.ApiException as e:
     print(
-        f"{Fore.RED}[ ERROR ] - Error creating datasource:"
+        f"{Fore.RED}[ ERROR ] - Error creating datasource: "
         f"{e}{Style.RESET_ALL}{Fore.GREEN}."
     )
 
