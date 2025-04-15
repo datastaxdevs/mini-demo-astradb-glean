@@ -54,6 +54,10 @@ print(
     f"{Fore.CYAN}[ OK ] - Collection {Style.RESET_ALL}{source_collection.name}"
     f"{Fore.CYAN} is ready{Style.RESET_ALL}{Fore.CYAN}."
 )
+# Empty the collection before inserting fresh data
+# (WARNING: it may wipe out actual data. We are doing it for DEMO PURPOSES here.)
+source_collection.delete_many({})
+print(f"{Fore.CYAN}[ OK ] - Collection has been emptied.{Style.RESET_ALL}")
 
 # Load philosophers dataset
 print(f"{Fore.CYAN}[INFO] - Downloading data from Hugging Face 🤗.{Style.RESET_ALL}")
@@ -75,12 +79,6 @@ def load_to_astra_db(data_to_insert, collection):
         for index, item in enumerate(data_to_insert)
     ]
     collection.insert_many(documents_to_insert)
-
-
-# Empty the collection before inserting fresh data
-# (WARNING: it may wipe out actual data. We are doing it for DEMO PURPOSES here.)
-source_collection.delete_many({})
-print(f"{Fore.CYAN}[ OK ] - Collection has been emptied.{Style.RESET_ALL}")
 
 # Insert documents into Astra DB
 philo_count = len(philo_dataset)
