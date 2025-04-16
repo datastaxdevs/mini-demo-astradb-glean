@@ -54,10 +54,6 @@ print(
     f"{Fore.CYAN}[ OK ] - Collection {Style.RESET_ALL}{source_collection.name}"
     f"{Fore.CYAN} is ready{Style.RESET_ALL}{Fore.CYAN}."
 )
-# Empty the collection before inserting fresh data
-# (WARNING: it may wipe out actual data. We are doing it for DEMO PURPOSES here.)
-source_collection.delete_many({})
-print(f"{Fore.CYAN}[ OK ] - Collection has been emptied.{Style.RESET_ALL}")
 
 # Load philosophers dataset
 print(f"{Fore.CYAN}[INFO] - Downloading data from Hugging Face 🤗.{Style.RESET_ALL}")
