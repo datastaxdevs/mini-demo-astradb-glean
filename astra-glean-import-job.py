@@ -103,7 +103,7 @@ print(f"{Fore.CYAN}[ OK ] - Glean client initialized{Style.RESET_ALL}")
 # Create and register datasource in Glean
 datasource_config = CustomDatasourceConfig(
     name=GLEAN_DATASOURCE_NAME,
-    display_name="AstraDB Collection DataSource",
+    display_name="Astra DB Collection DataSource",
     datasource_category="PUBLISHED_CONTENT",
     url_regex=f"^{ASTRA_DB_API_ENDPOINT}",
     object_definitions=[
