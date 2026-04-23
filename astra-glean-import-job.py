@@ -1,8 +1,8 @@
 import os
+import requests
 
 from astrapy import DataAPIClient
 from colorama import Fore, Style
-from datasets import load_dataset
 from dotenv import load_dotenv
 
 import glean_indexing_api_client as indexing_api
@@ -56,8 +56,12 @@ print(
 )
 
 # Load philosophers dataset
-print(f"{Fore.CYAN}[INFO] - Downloading data from Hugging Face 🤗.{Style.RESET_ALL}")
-philo_dataset = load_dataset("datastax/philosopher-quotes")["train"]
+print(f"{Fore.CYAN}[INFO] - Downloading data.{Style.RESET_ALL}")
+philo_dataset = requests.get(
+    "https://raw.githubusercontent.com/"
+    "datastaxdevs/mini-datasets/refs/heads/main/datasets/"
+    "philosopher-quotes.json"
+).json()
 print(f"{Fore.CYAN}[ OK ] - Dataset loaded in memory.{Style.RESET_ALL}")
 print(f"{Fore.CYAN}[INFO] - Sample record: {Style.RESET_ALL}{philo_dataset[16]}")
 

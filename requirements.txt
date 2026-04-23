@@ -1,6 +1,5 @@
 astrapy>=2.0,<3.0
 colorama>=0.4.5
-datasets>=3.5,<4.0
 python-dotenv>=1.0.0
 
 # There seems not to be a PyPI distribution for this one:
